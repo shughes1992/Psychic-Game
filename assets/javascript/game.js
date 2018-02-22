@@ -12,9 +12,9 @@ document.onkeyup = function (event) {
     //player guesses a letter ranging from a-z (onkeyUP)
     var userGuesses = event.key.toLowerCase();
     //cptr chooses random letter a-z 
-    var compChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+    var compChoices = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
+    
     console.log("user's guess: " + userGuesses);
 
     //computer guess
@@ -22,11 +22,15 @@ document.onkeyup = function (event) {
     var computerInput = compChoices[Math.floor(Math.random() * 26)];
 
     console.log("computer input: " + computerInput);
-}
 
         //!!CORRECT!!
     //if player guesses correct letter, then "Wins:" increase by 1 (update)
 
+    if (computerInput === userGuesses) {
+        wins++;
+        document.getElementById("wins").textContent = wins;
+    }
+}
 
 
     //Start game over (do not refresh page)
