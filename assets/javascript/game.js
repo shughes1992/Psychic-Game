@@ -71,8 +71,21 @@ document.onkeyup = function (event) {
 
     if (guessesLeft == 0) {
         losses++;
-        document.getElementById("message").textContent = "Sorry, you lost. Better luck next time.";
         document.getElementById("losses").textContent = losses;
+        guessesLeft = 11;
+    }
+
+    if (wins == 5) {
+        document.getElementById("Message").textContent = "You Won... Now celebrate!";
+        losses = 0;
+        wins = 0;
+        guessesLeft = 11;
+    }
+
+    if (losses == 5 ) {
+        document.getElementById("message").textContent = "Sorry, you lost to a computer. Better luck next time!";
+        losses = 0;
+        wins = 0;
         guessesLeft = 11;
     }
 }
