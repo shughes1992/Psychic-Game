@@ -5,12 +5,13 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 11;
 var guesses = [];
+var guessedLetters = [];
 
 
 document.onkeyup = function (event) {
     //player guesses a letter ranging from a-z (onkeyUP)
     var userGuesses = String.fromCharCode(event.keyCode).toLowerCase();
-
+    guessedLetters.push(guesses);
     //cptr chooses random letter a-z 
     var compChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -32,6 +33,7 @@ document.onkeyup = function (event) {
 
     var updateGuessesLeft = function () {
         document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
+        
         //!!CORRECT!!
     };
 
@@ -67,7 +69,7 @@ document.onkeyup = function (event) {
 
     //!!LOSSES
 
-    //if user guesses 9 times, then "Losses:" increase by 1 (update)
+    //if user guesses 11 times, then "Losses:" increase by 1 (update)
 
     if (guessesLeft == 0) {
         losses++;
